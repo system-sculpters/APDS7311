@@ -1,0 +1,35 @@
+POST https://localhost:5000/api/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "fullName": "user",
+    "accountNumber": "0123456789",
+    "idNumber": "0123456789101",
+    "password": "user123"
+}
+
+
+###
+POST https://localhost:5000/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "user",
+    "accountNumber": "0123456789",
+    "password": "user123"
+} 
+
+
+###
+GET  https://localhost:5000/api/payment/66fca27dabca5d141621fa8b HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmNhMjdkYWJjYTVkMTQxNjIxZmE4YiIsImlhdCI6MTcyNzk2NDg0MCwiZXhwIjoxNzI3OTY4NDQwfQ.uBns6-yVXST0Ljf_Lwnyd6aCeKeWHpBXFvhrtSDcu5g
+###
+POST  https://localhost:5000/api/payment/66fca27dabca5d141621fa8b HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmNhMjdkYWJjYTVkMTQxNjIxZmE4YiIsImlhdCI6MTcyNzk4NTcyNiwiZXhwIjoxNzI3OTg5MzI2fQ.6a4OrLaFmcCtabg7s3k0fkE304F4toBlNLICzv7Fvlg
+content-type: application/json
+
+{
+    "amount": 2000.00,
+    "provider": "SWIFT",
+    "code": "HSBCGB7G"
+} 

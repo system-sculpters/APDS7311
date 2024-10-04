@@ -1,0 +1,17 @@
+<main>
+    <div class="container">
+      <img src="../../assets/undraw_Credit_card_re_blml.png" alt="" />
+      <div class="hero-text">
+        <h1>The International Payment System</h1>
+        
+
+        <ng-container *ngIf="isLoggedIn; else loggedOut">
+        </ng-container>
+            
+        <ng-template #loggedOut>
+            <a mat-raised-button class="white-text" color="primary" routerLink="/login">Login</a>
+            <a mat-raised-button class="white-text" color="accent" routerLink="/signup">Signup</a>
+        </ng-template>
+      </div>
+    </div>
+  </main>

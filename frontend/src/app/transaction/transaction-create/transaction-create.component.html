@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="inner-container">
+        <div class="title">
+            <h3>Add New Transaction</h3>
+        </div>
+
+        <form (submit)="onaddtransaction(addTransaction)" #addTransaction="ngForm">
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input type="number" 
+                    ngModel name="amount"
+                    placeholder="Enter Amount"
+                    required
+                    min="0"
+                    matInput>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Currency</mat-label>
+                <mat-select ngModel name="currency" required>
+                    <mat-option *ngFor="let currency of ['USD', 'ZAR', 'EUR', 'GBP', 'JPY']" [value]="currency">
+                        {{currency}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Provider</mat-label>
+                <mat-select
+                  [(ngModel)]="selectedProvider"
+                  name="provider"
+                  required
+                  matInput>
+                  <mat-option *ngFor="let provider of ['SWIFT', 'Wise', 'PayPal']" [value]="provider">
+                    {{ provider }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        
+              <!-- Transaction Code - Show only if provider is selected -->
+              <div *ngIf="selectedProvider">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ selectedProvider }} Code</mat-label>
+                  <input type="text"
+                    [(ngModel)]="code"
+                    [name]="'code'"
+                    placeholder="Enter Code"
+                    [required]="selectedProvider"
+                    [pattern]="getProviderCodePattern()"
+                    matInput>
+                  <mat-error *ngIf="addTransaction.form.controls['code']?.invalid && addTransaction.form.controls['code']?.touched">
+                    Invalid {{ selectedProvider }} code format.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+            <button type="submit" color="primary" mat-raised-button>Add Transaction</button>
+        </form>
+    </div>
+</div>

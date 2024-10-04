@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+    <a mat-button routerLink="/"><mat-icon>money</mat-icon> The International Payment System</a>
+
+    <div class="spacer"></div>
+    
+
+    <ng-container *ngIf="isLoggedIn; else loggedOut">
+        <a mat-button routerLink="/add">Add</a>
+        <!--<a (click)="onLogout()">Logout</a>-->
+      
+        <a mat-button routerLink="/">List</a>
+    </ng-container>
+        
+    <ng-template #loggedOut>
+        <a mat-button routerLink="/login">Login</a>
+        <a mat-raised-button color="accent" routerLink="/signup">Signup</a>
+    </ng-template>
+</mat-toolbar>

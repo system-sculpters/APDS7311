@@ -1,0 +1,126 @@
+
+.container{
+    height: 100%;
+    padding: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.container img{
+    width: 100%;
+    height: 500px;
+}
+
+.hero-text{
+    width: 80%;
+}
+
+.hero-text h1{
+    font-size: 3.3rem;
+    margin-left: 8px;
+    color: #3f51b5;
+    
+    padding: 2em 0 1em 0;
+}
+
+.hero-text p{
+    font-style: 1.4rem;
+    margin-bottom: 20px;
+    padding: 2em 0 1em 0;
+}
+
+.container a{
+    padding: 1em 2.1em 1.1em;
+    border-radius: 4px;
+    margin: 8px ;
+    color: #000000;
+    font-weight: 800;
+    font-size: .85em;
+    text-transform: uppercase;
+    text-align: center;
+    transition: color 3s ease-in-out;
+}
+.container .login{
+    background-color: #e2e273;
+    box-shadow: 0em -0.2rem 0em #e2e273 inset;
+    
+}
+.container .login:hover{
+    background-color: transparent;
+    color: #8b4513;
+    border: 3px solid #e2e273;
+    cursor: pointer;
+}
+.btn-1{
+    background-color: #ddccd9;
+    box-shadow: 0em -0.2rem 0em #ddccd9 inset;
+    
+}
+.btn-1:hover{
+    background-color: transparent;
+    color: #8b4513;
+    border: 3px solid #ddccd9;
+    
+}
+
+.white-text {
+    color: white !important;
+}
+
+
+@media (max-width:884px){
+    .container{
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    .hero-text{
+        width: 100%;
+        text-align: center;
+    }
+    .hero-text h1{
+        font-size: 3rem;
+
+    }
+}
+
+
+
+@media (max-width:678px){
+    
+    .hero-text h1{
+        font-size: 1.6rem;
+
+    }
+}
+
+@media (max-width:390px){
+    .hero-text h1{
+        margin-bottom: 0em;
+        font-size: 1.4rem;
+
+    }
+
+    .hero-text p{
+        font-size: .6rem;
+
+    }
+    .container a{
+        padding: .6em 1.7em .7em;
+        font-weight: 600;
+        font-size: .80em;
+    }
+ }
+
+@media (max-width: 330px){
+    .container a{
+        padding: .6em 1.2em .7em;
+        font-weight: 600;
+        font-size: .60em;
+    }
+}
+

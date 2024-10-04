@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="inner-container">
+        <div class="title">
+            <h3>Login</h3>
+        </div>
+
+        <form (submit)="onlogin(loginform)" #loginform="ngForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input type="text" 
+                    ngModel name="enteredfullname"
+                    placeholder="Full Name"
+                    required
+                    minlength="1"
+                    pattern="^[A-Za-z\s]+$"
+                    #enteredfullname="ngModel"
+                    matInput>
+            </mat-form-field>
+            <div class="err" *ngIf="enteredfullname.invalid && (enteredfullname.dirty || enteredfullname.touched)">
+                Full name can only contain letters and spaces.
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Account Number</mat-label>
+                <input type="text" 
+                    ngModel name="enteredaccountnumber"
+                    placeholder="Account Number"
+                    required
+                    minlength="10"
+                    maxlength="10"
+                    pattern="^\d{10}$" 
+                    #enteredaccountnumber="ngModel"
+                    matInput>
+            </mat-form-field>
+            <div class="err" *ngIf="enteredaccountnumber.invalid && (enteredaccountnumber.dirty || enteredaccountnumber.touched)">
+                Account number must be a 10-digit number.
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" 
+                    ngModel name="enteredpassword"
+                    placeholder="Password"
+                    required
+                    #enteredpassword="ngModel"
+                    matInput>
+            </mat-form-field>
+            <div class="err" *ngIf="enteredpassword.invalid && (enteredpassword.dirty || enteredpassword.touched)">
+                Password must be between 8 and 15 characters and contain letters, numbers, or special characters.
+            </div>
+
+            <button type="submit" color="primary" mat-raised-button>Login</button>
+        </form>
+    </div>
+</div>
