@@ -26,8 +26,12 @@ const register = async (req, res) => {
       if (!validator.isStrongPassword(password, { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1 })) {
           return res.status(400).json({ message: "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, and a number" });
       }
+      const sanitizedIdNumber = validator.escape(idNumber);
+      const sanitizedAccountNumber = validator.escape(accountNumber);
 
-      const existingUser = await User.findOne({ $or: [{ idNumber }, { accountNumber }] });
+      const existingUser = await User.findOne({ 
+          $or: [{ idNumber: sanitizedIdNumber }, { accountNumber: sanitizedAccountNumber }]
+      });
       if (existingUser) {
           return res.status(400).json({ message: "ID number or account number already exists" });
       }
