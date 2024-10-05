@@ -4,6 +4,8 @@
 ### Thobani Khumalo - ST10092282
 ### Samendra Morgan - ST10092045
 
+
+
 ## CircleCI
 
 ## The CircleCI configuration file (.circleci/config.yml) was set up to automate the CI/CD process for the MEAN stack project APDS7311. It defines the steps to build, test, and deploy the application, ensuring a smooth and automated workflow for integrating code changes and verifying that everything works as expected
