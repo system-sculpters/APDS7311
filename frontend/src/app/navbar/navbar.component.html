@@ -6,9 +6,11 @@
 
     <ng-container *ngIf="isLoggedIn; else loggedOut">
         <a mat-button routerLink="/add">Add</a>
-        <!--<a (click)="onLogout()">Logout</a>-->
       
-        <a mat-button routerLink="/">List</a>
+        <a mat-button routerLink="/list">List</a>
+
+        
+        <a (click)="onLogout()">Logout</a>
     </ng-container>
         
     <ng-template #loggedOut>

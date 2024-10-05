@@ -33,6 +33,28 @@ export class TransactionCreateComponent implements OnInit{
     }
   }
 
+  getValidationMessage(): string | null {
+    const swiftPattern = /^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/;
+    const wisePattern = /^[A-Z0-9]{8,11}$/;
+    const paypalPattern = /^[A-Z0-9]{13}$/;
+
+    if (this.selectedProvider === 'SWIFT') {
+      if (!swiftPattern.test(this.code)) {
+        return "SWIFT codes must be 8 to 11 characters long, beginning with 6 letters and 2 alphanumeric characters";
+      }
+    } else if (this.selectedProvider === 'Wise') {
+      if (!wisePattern.test(this.code)) {
+        return "Wise codes must be between 8 and 11 alphanumeric characters.";
+      }
+    } else if (this.selectedProvider === 'PayPal') {
+      if (!paypalPattern.test(this.code)) {
+        return "PayPal codes must be exactly 13 alphanumeric characters.";
+      }
+    }
+    return null; // No validation error
+  }
+
+
   onaddtransaction(transactionform: NgForm) {
     if(transactionform.invalid){
       alert('Invalid')
@@ -40,6 +62,9 @@ export class TransactionCreateComponent implements OnInit{
     }
 
     const userId = this.authservice.getUserId()
+    if (!userId) {
+      return;
+    }
     this.transactionservice.addtransaction_service(userId, transactionform.value.amount, transactionform.value.currency, transactionform.value.provider, transactionform.value.code)
     transactionform.resetForm()
   }

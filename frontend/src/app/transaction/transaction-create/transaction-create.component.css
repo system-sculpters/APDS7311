@@ -31,3 +31,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.submit-button {
+    display: block;
+    width: 100%;
+    margin-top: 37px; /* Adds space between the form fields and button */
+  }

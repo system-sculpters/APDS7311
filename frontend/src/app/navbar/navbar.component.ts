@@ -18,4 +18,9 @@ export class NavbarComponent {
       this.isLoggedOut = !status;
     });
   }
+
+  onLogout(): void {
+    this.authService.logout();
+    
+  }
 }
