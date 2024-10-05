@@ -7,7 +7,7 @@
 
 
 ## CircleCI
-
+## Link: https://app.circleci.com/pipelines/circleci/2LPvfd5p2Zyq3sDi1KZk76/15rmwQ2giCs4znYTYuLyw1 
 ## The CircleCI configuration file (.circleci/config.yml) was set up to automate the CI/CD process for the MEAN stack project APDS7311. It defines the steps to build, test, and deploy the application, ensuring a smooth and automated workflow for integrating code changes and verifying that everything works as expected
 ![image](https://github.com/user-attachments/assets/629ed1b1-1ef8-45b7-8dd4-7d4a007bc97b)
 ![image](https://github.com/user-attachments/assets/6654f585-0967-431a-847b-e23484db0197)
@@ -26,7 +26,7 @@
 
 
 ## SONAR Cloud 
-
+## Link: https://sonarcloud.io/summary/overall?id=system-sculpters_APDS7311 
 ![image](https://github.com/user-attachments/assets/9936a18f-969d-4fa7-8fa3-05f6f75171f2)
 ![image](https://github.com/user-attachments/assets/a3f00052-6a5e-4d62-a45b-2848110082c5)
 
