@@ -25,4 +25,23 @@
 ![image](https://github.com/user-attachments/assets/f16b3cff-d5ba-4aa8-96ed-2e1057192ac6)
 
 
+## SONAR Cloud 
+
+![image](https://github.com/user-attachments/assets/9936a18f-969d-4fa7-8fa3-05f6f75171f2)
+![image](https://github.com/user-attachments/assets/a3f00052-6a5e-4d62-a45b-2848110082c5)
+
+
+![image](https://github.com/user-attachments/assets/b547e9fa-5eda-48b7-ae78-11fbc72a92dd)
+![image](https://github.com/user-attachments/assets/6314c1e6-eb76-4528-840e-f3832371c85c)
+
+
+![image](https://github.com/user-attachments/assets/de1e1162-f3ab-40fb-bb0c-640f6e3deb8b)
+This shows the status of the APDS7311 main branch with a "Passed" quality gate. It highlights that the code is clean with no major issues. A progress bar shows the distribution of TypeScript, JavaScript, HTML, and CSS files. 
+
+
+
+
+
+
+
 
