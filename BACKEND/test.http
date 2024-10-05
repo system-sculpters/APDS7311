@@ -3,8 +3,8 @@ content-type: application/json
 
 {
     "fullName": "userh",
-    "accountNumber": "0123456787",
-    "idNumber": "0123456789112",
+    "accountNumber": "0123456687",
+    "idNumber": "0123456784112",
     "password": "@Userh123"
 }
 
@@ -15,7 +15,7 @@ content-type: application/json
 
 {
     "username": "userh",
-    "accountNumber": "0123456787",
+    "accountNumber": "0123456687",
     "password": "@Userh123"
 } 
 
@@ -24,8 +24,8 @@ content-type: application/json
 GET  https://localhost:5000/api/payment/66fca27dabca5d141621fa8b HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmNhMjdkYWJjYTVkMTQxNjIxZmE4YiIsImlhdCI6MTcyNzk2NDg0MCwiZXhwIjoxNzI3OTY4NDQwfQ.uBns6-yVXST0Ljf_Lwnyd6aCeKeWHpBXFvhrtSDcu5g
 ###
-POST  https://localhost:5000/api/payment/66fca27dabca5d141621fa8b HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmNhMjdkYWJjYTVkMTQxNjIxZmE4YiIsImlhdCI6MTcyNzk4NTcyNiwiZXhwIjoxNzI3OTg5MzI2fQ.6a4OrLaFmcCtabg7s3k0fkE304F4toBlNLICzv7Fvlg
+POST  https://localhost:5000/api/payment/6701bec64121ea45533e832c HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDFiZWM2NDEyMWVhNDU1MzNlODMyYyIsImlhdCI6MTcyODE2NzkxNiwiZXhwIjoxNzI4MTcxNTE2fQ.BanYOJ9hiWSin3Kh6kDToeciF_5LALbVOVB7F9aUlkc
 content-type: application/json
 
 {

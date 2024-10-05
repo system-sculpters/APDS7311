@@ -11,12 +11,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        trim: true,
         match: [/^\d{13}$/, 'ID number must be a 13-digit number']
     },
     accountNumber: {
         type: String,
         required: true,
         unique: true,
+        trim: true,
         match: [/^\d{10}$/, 'Account number must be a 10-digit number'] 
     },
     password: {

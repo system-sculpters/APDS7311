@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
 const loginAttemptSchema = new mongoose.Schema({ 
-    username: {
-     type: String,
-     required: true,
-     immutable: true,
-     trim: true,
-     match: [/^[a-zA-Z0-9_]+$/, 'Only alphanumeric characters and underscores'] 
+    accountNumber: {
+      type: String,
+      required: true,
+      immutable: true,
+      unique: true,
+      trim: true,
+      match: [/^\d{10}$/, 'Account number must be a 10-digit number'] 
     },
     ipAddress: {
       type: String,
