@@ -14,9 +14,9 @@ POST https://localhost:5000/api/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "username": "user",
-    "accountNumber": "0123456789",
-    "password": "user123"
+    "username": "userh",
+    "accountNumber": "0123456787",
+    "password": "@Userh123"
 } 
 
 

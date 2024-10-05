@@ -54,11 +54,31 @@ const register = async (req, res) => {
 
 const login = async (req, res) =>{
     try {
-        const { username, accountNumber, password } = req.body;
-    
-        //Find the user by username
-        const user = await User.findOne({ $and: [{fullName: username}, {accountNumber}]})
-        if (!user) {
+      const { username, accountNumber, password } = req.body;
+
+      if (!username || !accountNumber || !password) {
+          return res.status(400).json({ message: "All fields are required" });
+      }
+
+      if (!validator.isAlpha(username.replace(/\s/g, ''), 'en-US')) {
+          return res.status(400).json({ message: "Username can only contain letters and spaces" });
+      }
+
+      if (!validator.isLength(accountNumber, { min: 10, max: 10 }) || !validator.isNumeric(accountNumber)) {
+          return res.status(400).json({ message: "Account number must be a 10-digit number" });
+      }
+
+      const sanitizedUsername = validator.escape(username);
+      const sanitizedAccountNumber = validator.escape(accountNumber);
+
+      const user = await User.findOne({ 
+          $and: [
+              { fullName: sanitizedUsername }, 
+              { accountNumber: sanitizedAccountNumber }
+          ]
+      });
+      
+      if (!user) {
           return res.status(400).json({ message: "Invalid credentials" });
         }
     

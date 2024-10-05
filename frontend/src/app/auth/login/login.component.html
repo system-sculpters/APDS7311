@@ -6,10 +6,10 @@
 
         <form (submit)="onlogin(loginform)" #loginform="ngForm">
             <mat-form-field appearance="outline">
-                <mat-label>Full Name</mat-label>
+                <mat-label>Username</mat-label>
                 <input type="text" 
                     ngModel name="enteredfullname"
-                    placeholder="Full Name"
+                    placeholder="Username"
                     required
                     minlength="1"
                     pattern="^[A-Za-z\s]+$"
@@ -17,7 +17,7 @@
                     matInput>
             </mat-form-field>
             <div class="err" *ngIf="enteredfullname.invalid && (enteredfullname.dirty || enteredfullname.touched)">
-                Full name can only contain letters and spaces.
+                Username can only contain letters and spaces.
             </div>
 
             <mat-form-field appearance="outline">
@@ -42,6 +42,9 @@
                     ngModel name="enteredpassword"
                     placeholder="Password"
                     required
+                    minlength="8"
+                    maxlength="15"
+                    pattern="^([a-zA-Z0-9@*#]{8,15})$" 
                     #enteredpassword="ngModel"
                     matInput>
             </mat-form-field>
