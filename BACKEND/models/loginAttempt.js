@@ -6,7 +6,7 @@ const loginAttemptSchema = new mongoose.Schema({
       required: true,
       immutable: true,
       unique: true,
-      trim: true,
+      trim: true, 
       match: [/^\d{10}$/, 'Account number must be a 10-digit number'] 
     },
     ipAddress: {

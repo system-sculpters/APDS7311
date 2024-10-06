@@ -37,8 +37,28 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-        
-              <!-- Transaction Code - Show only if provider is selected -->
+                      
+
+              <div *ngIf="selectedProvider">
+                <mat-form-field appearance="outline">
+                  <mat-label>Reciever Account No.</mat-label>
+                  <input type="text" 
+                      ngModel name="enteredaccountnumber"
+                      placeholder="Account Number"
+                      required
+                      minlength="10"
+                      maxlength="10"
+                      pattern="^\d{10}$" 
+                      #enteredaccountnumber="ngModel"
+                      matInput>
+                </mat-form-field>
+                <div class="err" *ngIf="enteredaccountnumber.invalid && (enteredaccountnumber.dirty || enteredaccountnumber.touched)">
+                  Account number must be a 10-digit number.
+                </div>
+              </div>
+              
+              
+
               <div *ngIf="selectedProvider">
                 <mat-form-field appearance="outline">
                   <mat-label>{{ selectedProvider }} Code</mat-label>
@@ -55,7 +75,7 @@
                 </mat-form-field>
               </div>
 
-            <button type="submit" color="primary" mat-raised-button class="submit-button">Add Transaction</button>
+            <button type="submit" color="primary" mat-raised-button class="submit-button">Pay now</button>
         </form>
     </div>
 </div>

@@ -22,6 +22,13 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    reciever: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        match: [/^\d{10}$/, 'Account number must be a 10-digit number'] 
+    },
     status: {
         type: String,
         required: true,

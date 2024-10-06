@@ -19,7 +19,7 @@ const getAllPayments = async (req, res) =>{
 const createTransaction = async (req, res) => {
     try {
         const { id } = req.params;
-        const { amount, currency, provider, code } = req.body;
+        const { amount, currency, provider, code, reciever } = req.body;
 
         // If provider is undefined, default to 'SWIFT'
         const transactionProvider = provider || 'SWIFT';
@@ -30,7 +30,7 @@ const createTransaction = async (req, res) => {
         }
 
         // Create a new transaction
-        const newTransaction = new Transaction({ userId: id, amount, currency, provider: transactionProvider, code });
+        const newTransaction = new Transaction({ userId: id, amount: amount, currency: currency, provider: transactionProvider, code: code, reciever: reciever });
 
 
         // Validate the transaction before saving

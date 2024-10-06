@@ -65,7 +65,7 @@ export class TransactionCreateComponent implements OnInit{
     if (!userId) {
       return;
     }
-    this.transactionservice.addtransaction_service(userId, transactionform.value.amount, transactionform.value.currency, transactionform.value.provider, transactionform.value.code)
+    this.transactionservice.addtransaction_service(userId, transactionform.value.amount, transactionform.value.currency, transactionform.value.provider, transactionform.value.code, transactionform.value.enteredaccountnumber)
     transactionform.resetForm()
   }
 }

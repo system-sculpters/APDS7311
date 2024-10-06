@@ -10,6 +10,7 @@ interface Transaction {
   provider: string, 
   code: string,
   status: string,
+  reciever: string
   __v: number
 }
 
@@ -22,8 +23,8 @@ export class TransactionServiceService {
   private mainRoute = 'https://localhost:5000/api/payment/'
   constructor(private http: HttpClient) { }
 
-  addtransaction_service(userId: string, amount: number, currency: string, provider: string, code: string) {
-    this.http.post<{message: string}>( `${this.mainRoute}${userId}`, {amount, currency, provider, code})
+  addtransaction_service(userId: string, amount: number, currency: string, provider: string, code: string, reciever: string) {
+    this.http.post<{message: string}>( `${this.mainRoute}${userId}`, {amount, currency, provider, code, reciever})
     .pipe(catchError(this.handleError))
     .subscribe((transactions) => {
         
