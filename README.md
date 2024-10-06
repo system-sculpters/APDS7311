@@ -1,3 +1,4 @@
+#APDS Part 2
 ## GROUP MEMEBERS (Contributors)
 
 ### Nkosinathi Ngozo - ST10215069
@@ -37,7 +38,6 @@
 
 ![image](https://github.com/user-attachments/assets/de1e1162-f3ab-40fb-bb0c-640f6e3deb8b)
 This shows the status of the APDS7311 main branch with a "Passed" quality gate. It highlights that the code is clean with no major issues. A progress bar shows the distribution of TypeScript, JavaScript, HTML, and CSS files. 
-
 
 
 
