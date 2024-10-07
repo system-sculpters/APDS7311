@@ -15,7 +15,7 @@ https://youtu.be/y_0U-_qhd2U
 ## MAIN GITHUB REPOSITORY USED
 https://github.com/system-sculpters/APDS7311.git
 
-- This the main repo used by group throughout the project to avoid problems with circl ci and sonarqube (sonar cloud)
+- This is the main repo used by group throughout the project to avoid problems with circl ci and sonarqube (sonar cloud)
 - All the tests with both these software was conducted on this repo 
 
 
@@ -95,6 +95,3 @@ This shows the status of the APDS7311 main branch with a "Passed" quality gate. 
 
 
 
-
-
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/X7Vf0Ahx)
