@@ -1,6 +1,11 @@
 const Transaction = require('../models/Transaction')
 
 const getAllPayments = async (req, res) =>{
+    // This method was adapted from dev
+    // https://dev.to/omacys/building-a-basic-crud-api-with-nodejs-mongodb-and-expressjs-a-beginners-tutorial-1mmh#:~:text=In%20this%20tutorial,%20we%20will%20be%20building%20a%20basic%20CRUD
+    // Shamsuddeen Omacy
+    // https://dev.to/omacys
+    
     try {
         const {id} = req.params
 
@@ -46,6 +51,11 @@ const createTransaction = async (req, res) => {
 
 
 const validateCode = (provider, code) => {
+    // This mesthod was adapted from plainenglish
+    // https://plainenglish.io/blog/learn-to-use-regular-expressions-like-a-ninja-in-node-js-20cfb6806f26
+    // Petros Koulianos
+    // https://plainenglish.io/author/petros-koulianos
+    
     // Define regex patterns for each provider
     const swiftPattern = /^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/;
     const wisePattern = /^[A-Z0-9]{8,11}$/; // Example: Wise code pattern

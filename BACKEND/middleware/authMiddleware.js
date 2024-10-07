@@ -1,6 +1,11 @@
 const jwt = require('jsonwebtoken')
 
 const authMiddleware = (req, res, next) => {
+    // This method was adapted from dev
+    // https://dev.to/cyberwolves/node-js-api-authentication-with-jwt-json-web-token-auth-middleware-ggm#:~:text=Hi,%20Today%20we%20are%20going%20to%20implement%20API%20authentication%20with
+    // cyberwolves
+    // https://dev.to/cyberwolves
+
     console.log('Request Headers:', req.headers);
 
     const authHeader = req.header('Authorization');

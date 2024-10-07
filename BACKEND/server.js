@@ -1,3 +1,10 @@
+// This https server implementation was adapted from stackoverflow
+// https://stackoverflow.com/questions/11744975/enabling-https-on-express-js
+// Setthase
+// https://stackoverflow.com/users/1563501/setthase
+// Mike 'Pomax' Kamermans
+// https://stackoverflow.com/users/740553/mike-pomax-kamermans
+
 const https = require('https')
 const dotenv = require('dotenv').config()
 const fs = require('fs')

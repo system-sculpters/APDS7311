@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const ATLAS_URI = process.env.ATLAS_URI
 
 const connectDB = async () =>{
+    // This method was adapted from dev
+    // https://dev.to/alexmercedcoder/basic-authentication-with-node-express-and-mongo-1a1c#:~:text=This%20article%20is%20a%20walkthrough%20to%20creating%20a%20basic%20level
+    // https://dev.to/alexmercedcoder
+    // Alex Merced
     try {
         await mongoose.connect(ATLAS_URI);
         console.log('mongoDB is CONNECTED!!! :)')

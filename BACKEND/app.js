@@ -1,3 +1,6 @@
+// This express app configuration was adapted from mozilla
+// https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
+
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv').config()
@@ -11,7 +14,10 @@ const ORIGIN_PORT = process.env.ORIGIN_PORT || 4200
 
 connectDB() 
 
-
+// this cors configuration was adapted from dev
+// https://dev.to/speaklouder/how-to-configure-cors-in-nodejs-with-express-11h#:~:text=Configuring%20CORS%20in%20Node.js%20with%20Express%20is%20a%20fundamental%20step
+// Nilesh Raut
+// https://dev.to/speaklouder
 const corsOptions = {
     origin: `https://localhost:${ORIGIN_PORT}`,  // Allow requests from Angular app
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these methods

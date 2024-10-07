@@ -4,6 +4,10 @@ const validator = require('validator');
 const User = require('../models/User')
 
 const register = async (req, res) => {
+    // This method was adapted from dev
+    // https://dev.to/alexmercedcoder/basic-authentication-with-node-express-and-mongo-1a1c#:~:text=This%20article%20is%20a%20walkthrough%20to%20creating%20a%20basic%20level
+    // https://dev.to/alexmercedcoder
+    // Alex Merced
   try {
       const { fullName, idNumber, accountNumber, password } = req.body;
 
@@ -53,6 +57,10 @@ const register = async (req, res) => {
 
 
 const login = async (req, res) =>{
+    // This method was adapted from dev
+    // https://dev.to/alexmercedcoder/basic-authentication-with-node-express-and-mongo-1a1c#:~:text=This%20article%20is%20a%20walkthrough%20to%20creating%20a%20basic%20level
+    // https://dev.to/alexmercedcoder
+    // Alex Merced
     try {
       const { username, accountNumber, password } = req.body;
 
