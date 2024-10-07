@@ -1,16 +1,63 @@
 # APDS Part 2
 
-## YOUTUBE VIDEO LINK
-
-https://youtu.be/y_0U-_qhd2U
-
-
 ## GROUP MEMEBERS (Contributors)
 
 ### Nkosinathi Ngozo - ST10215069
 ### Thobani Khumalo - ST10092282
 ### Samendra Morgan - ST10092045
 
+
+## YOUTUBE VIDEO LINK
+
+https://youtu.be/y_0U-_qhd2U
+
+
+## MAIN GITHUB REPOSITORY USED
+https://github.com/system-sculpters/APDS7311.git
+
+- This the main repo used by group throughout the project to avoid problems with circl ci and sonarqube (sonar cloud)
+- All the tests with both these software was conducted on this repo 
+
+
+## Running the app
+The main package manager used was yarn but npm still works in the project
+
+### Start up
+#### Frontennd (Angular)
+To start up the front-end cd to the frontend directory then run 'ng serve --open' this will automatically start-up the angular app in the browser on port 4200
+
+![Screenshot 2024-10-07 215801](https://github.com/user-attachments/assets/4f4c12c2-24a0-4226-bc9d-16b7b98ef263)
+
+
+
+#### Backend (NodeJS)
+To start up the backend cd to the backend directory then run 'nodemon server.js' if you are using npm or 'yarn start' if you are using yarn as your package manager
+
+![Screenshot 2024-10-07 215426](https://github.com/user-attachments/assets/5a99c55c-3ca7-4fbd-a41f-0874d0f8c7f2)
+
+![Screenshot 2024-10-07 215309](https://github.com/user-attachments/assets/d59ac015-0650-4c8d-880d-6c9dd5957629)
+
+
+### Possible problems
+Both the forntend and backend are configured for https and there the anitvirus may have problems with the running of the app and server due to the certificates there we would manually need to accept the certificates on our browser. 
+For the backend open a new tab in the browser and go to 'https://localhost:5000/' an accept the certificate.
+
+
+![Screenshot 2024-10-07 215559](https://github.com/user-attachments/assets/e8914125-1404-4127-b565-4bab61ee7163)
+
+- click 'show details'
+
+
+![Screenshot 2024-10-07 223627](https://github.com/user-attachments/assets/b7c320f5-ab8f-4c6b-ac81-143daecde9c1)
+
+- click 'wish to continue'
+
+
+![WhatsApp Image 2024-10-07 at 21 58 34_451e39ef](https://github.com/user-attachments/assets/0b3869a3-b8a7-453d-b074-5df37fe416da)
+
+- click 'ok' to accept the certificate
+
+Remember: the steps may differ with different antiviruses as these instructions are for kaspersky
 
 
 ## CircleCI
@@ -50,4 +97,4 @@ This shows the status of the APDS7311 main branch with a "Passed" quality gate. 
 
 
 
-
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/X7Vf0Ahx)
