@@ -8,6 +8,8 @@ const cors = require('cors')
 const { connectDB } = require('./db/conn')
 const authRoute = require('./routes/auth');
 const customerRoute = require('./routes/customer');
+const transactionRoute = require('./routes/transaction'); 
+const employeeRoute = require('./routes/employee'); 
 
 const urlprefix = '/api'
 const ORIGIN_PORT = process.env.ORIGIN_PORT || 4200
@@ -31,6 +33,8 @@ app.use(cors(corsOptions))
 
 app.use(express.json()); 
 
+app.use(`${urlprefix}/employees`,employeeRoute)
+app.use(`${urlprefix}/transactions`,transactionRoute);  
 app.use(`${urlprefix}/auth`, authRoute);
 app.use(`${urlprefix}/payment`, customerRoute);
 
