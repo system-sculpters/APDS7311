@@ -1,21 +1,36 @@
-.title{
+.title {
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: space-between; 
+    width: 80%;
+    margin: 0 auto 1rem auto;
 }
 
-.title h3{
+.title-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.title h3 {
     color: #3f51b5;
+    margin: 0;
+    font-size: 1.5rem; /* Increases the label text size */
+    font-weight: 500;
+}
+
+.status-dropdown {
+    min-width: 150px;
+    margin-left: auto;
 }
 
 .small-table,
 .table-container {
-    width: 50%; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the table horizontally */
+    width: 80%;
+    margin: 0 auto;
 }
 
-button{
+button {
     color: #fff;
     background-color: #ff0000;
     border: none;

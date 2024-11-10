@@ -25,7 +25,7 @@ export class AuthServiceService {
       accountNumber: accountNumber,
       password: password
     }).subscribe(response => {
-      console.log(`this is the response: ${response}`);
+      console.log(`this is the response: ${JSON.stringify(response)}`);
       this.router.navigate(['/login'])
     });
   }
@@ -36,7 +36,7 @@ export class AuthServiceService {
       accountNumber: accountNumber,
       password: password
     }).subscribe(response => {
-      console.log(`this is the response: ${response}`);
+      console.log(`this is the response: ${JSON.stringify(response)}`);
       this.token = response.token;
       this.userId = response.userId; 
       this.role = response.role;
@@ -55,7 +55,7 @@ export class AuthServiceService {
       email: email,
       password: password
     }).subscribe(response => {
-      console.log(`this is the response: ${response}`);
+      console.log(`this is the response: ${JSON.stringify(response)}`);
       this.token = response.token;
       this.userId = response.userId; 
       this.role = response.role;

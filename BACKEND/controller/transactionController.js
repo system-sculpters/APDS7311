@@ -4,7 +4,7 @@ const Transaction = require('../models/Transaction')
 const getAllTransactions = async (req, res) =>{
         
     try {
-        const transactions = await Transaction.find({ status: 'pending' })
+        const transactions = await Transaction.find()//{ status: 'pending' }
         .populate('userId', 'fullName idNumber');
         
         console.log(transactions)

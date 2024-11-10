@@ -27,10 +27,14 @@ interface User {
 })
 export class TransactionDisplayEmployeeComponent implements OnInit, OnDestroy{
     transactions: Transaction[] = [];
+
+    filteredTransactions: Transaction[] = [];
   
-    displayedColumns: string[] = ['position', 'user', 'amount', 'currency', 
-      'provider', 'code', 'status', 'reciever', 'verify'];
+    displayedColumns: string[] = ['position', 'sender', 'amount', 'currency', 
+      'provider', 'code', 'reciever', 'status', 'verify'];
   
+    selectedStatus: string = 'all';
+
     private transactionsubscription!: Subscription;
   
     constructor(public transactionservice: TransactionServiceService,
@@ -45,8 +49,21 @@ export class TransactionDisplayEmployeeComponent implements OnInit, OnDestroy{
           user: transaction.userId.fullName, 
           ...transaction
         }));
+
+        this.filteredTransactions = this.transactions
       });
     }
+
+    applyFilter() {
+      console.log(`selectedStatus: ${this.selectedStatus}`)
+      if (this.selectedStatus === 'all') {
+        this.filteredTransactions = this.transactions;
+      } else {
+        this.filteredTransactions = this.transactions.filter(transaction => transaction.status === this.selectedStatus);
+      }
+    }
+
+
     ngOnInit(): void {
       const role = this.authService.getRole()
       
