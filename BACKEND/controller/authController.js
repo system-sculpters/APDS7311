@@ -166,8 +166,10 @@ const employeeLogin = async (req, res) => {
             return res.status(400).json({ message: "Invalid email format" });
         }
 
+        const sanitizedEmail = validator.escape(email);
+
         // Find the employee by email
-        const employee = await Employee.findOne({ email, role: 'employee' });
+        const employee = await Employee.findOne({ email: sanitizedEmail, role: 'employee' });
         
         if (!employee) {
             return res.status(400).json({ message: "Invalid email or password" });

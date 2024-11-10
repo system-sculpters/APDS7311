@@ -14,10 +14,7 @@ export class EmployeeLoginComponent {
   option(): string {
     return '/login';
   }
-  ngOnInit(): void {
-    
-  }
-
+  
   onlogin(loginform: NgForm){
     
     if(loginform.invalid){

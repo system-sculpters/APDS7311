@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthServiceService } from '../../auth/auth-service.service';
 
 @Component({
@@ -8,14 +8,11 @@ import { AuthServiceService } from '../../auth/auth-service.service';
   templateUrl: './register.component.html',
   styleUrl: '../../transaction/transaction-create/transaction-create.component.css'
 })
-export class RegisterComponent  implements OnInit{
+export class RegisterComponent {
   constructor(public authservice: AuthServiceService, private router: Router) {}
 
   option(): string {
     return '/login';
-  }
-  ngOnInit(): void {
-    
   }
 
   onregister(registerform: NgForm){

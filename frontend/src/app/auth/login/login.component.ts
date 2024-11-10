@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthServiceService } from '../../auth/auth-service.service';
 
 @Component({
@@ -14,10 +14,7 @@ export class LoginComponent {
   option(): string {
     return '/login';
   }
-  ngOnInit(): void {
-    
-  }
-
+  
   onlogin(loginform: NgForm){
     
     if(loginform.invalid){

@@ -8,16 +8,11 @@ import { AuthServiceService } from '../../auth/auth-service.service';
   templateUrl: './transaction-create.component.html',
   styleUrl: './transaction-create.component.css'
 })
-export class TransactionCreateComponent implements OnInit{
+export class TransactionCreateComponent{
   constructor(public transactionservice: TransactionServiceService, public authservice: AuthServiceService) {}
 
   selectedProvider: string | null = null; // To store the selected provider
   code: string = '';  
-
-  ngOnInit(): void {
-    
-  }
-
 
   // Returns regex pattern based on the selected provider
   getProviderCodePattern(): string {
