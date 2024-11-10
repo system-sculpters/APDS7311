@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthServiceService {
 
-  private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
+  private readonly loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   private token!: string;
   private userId!: string; // Add userId property
   private role!: string; // Add userId property
