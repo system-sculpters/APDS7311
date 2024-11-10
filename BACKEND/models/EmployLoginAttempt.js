@@ -9,7 +9,7 @@ const loginAttemptSchema = new mongoose.Schema({
         type: String,
         required: true,
         immutable: true,
-        match: [/^\S+@\S+\.\S+$/, 'Email is not valid'] 
+        match: [/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,6}$/, 'Email is not valid']
     },
     ipAddress: {
       type: String, 
