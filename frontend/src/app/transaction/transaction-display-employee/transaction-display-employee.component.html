@@ -5,7 +5,7 @@
   <mat-form-field appearance="outline" class="status-dropdown">
     <mat-label>Status</mat-label>
     <mat-select [(ngModel)]="selectedStatus" (selectionChange)="applyFilter()">
-      <mat-option *ngFor="let status of ['all', 'pending', 'verified']" [value]="status">
+      <mat-option *ngFor="let status of statusOptions" [value]="status">
         {{status}}
       </mat-option>
     </mat-select>
@@ -30,7 +30,7 @@
         </ng-container>
         <ng-container matColumnDef="sender">
           <mat-header-cell *matHeaderCellDef> sender </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.user}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.sender}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="provider">

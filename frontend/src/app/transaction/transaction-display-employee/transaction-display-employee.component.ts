@@ -30,6 +30,8 @@ export class TransactionDisplayEmployeeComponent implements OnInit, OnDestroy{
 
     filteredTransactions: Transaction[] = [];
   
+    statusOptions = ['all', 'pending', 'verified'];
+
     displayedColumns: string[] = ['position', 'sender', 'amount', 'currency', 
       'provider', 'code', 'reciever', 'status', 'verify'];
   
@@ -46,7 +48,7 @@ export class TransactionDisplayEmployeeComponent implements OnInit, OnDestroy{
         console.log('Received transactions data:', transactions); // Debugging log
         this.transactions = transactions.map((transaction, index) => ({
           position: index + 1,
-          user: transaction.userId.fullName, 
+          sender: transaction.userId.fullName, 
           ...transaction
         }));
 
