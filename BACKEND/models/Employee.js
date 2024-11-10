@@ -10,12 +10,7 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        validate: {
-            validator: function(v) {
-                return /^\S+@\S+\.\S+$/.test(v);  // Simple email regex
-            },
-            message: props => `${props.value} is not a valid email!`
-        }
+        match: [/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,6}$/, 'Email is not valid']
     },
     password: {
         type: String,
