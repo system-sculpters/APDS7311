@@ -38,9 +38,9 @@ export class TransactionDisplayEmployeeComponent implements OnInit, OnDestroy{
     private transactionsubscription!: Subscription;
   
     constructor(public transactionservice: TransactionServiceService,
-      private authService: AuthServiceService, private router: Router ) {}
+      private readonly authService: AuthServiceService, private readonly router: Router ) {}
   
-    private getTransactions = () =>{
+    private readonly getTransactions = () =>{
       this.transactionservice.getalltransactions_service();
       this.transactionsubscription = this.transactionservice.getUpdateListener().subscribe((transactions: Transaction[]) => {
         console.log('Received transactions data:', transactions); // Debugging log

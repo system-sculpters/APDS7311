@@ -7,6 +7,8 @@ const dotenv = require('dotenv').config()
 const cors = require('cors')
 const { connectDB } = require('./db/conn')
 
+app.disable('x-powered-by');
+
 const authRoute = require('./routes/auth');
 const customerRoute = require('./routes/customer');
 const transactionRoute = require('./routes/transaction'); 

@@ -14,9 +14,9 @@ export class AuthServiceService {
   private token!: string;
   private userId!: string; // Add userId property
   private role!: string; // Add userId property
-  private mainRoute = 'https://localhost:5000/api/auth/'
+  private readonly mainRoute = 'https://localhost:5000/api/auth/'
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private readonly http: HttpClient, private readonly router: Router) { }
 
   signup(fullName: string, idNumber: string, accountNumber: string, password: string) {
     this.http.post(`${this.mainRoute}register`, {
