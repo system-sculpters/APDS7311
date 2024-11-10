@@ -3,92 +3,55 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-
   private readonly loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   private token!: string;
-  private userId!: string; // Add userId property
-  private role!: string; // Add userId property
-  private readonly mainRoute = 'https://localhost:5000/api/auth/'
+  private userId!: string;
+  private role!: string;
+  private readonly mainRoute = 'https://localhost:5000/api/auth/';
 
   constructor(private readonly http: HttpClient, private readonly router: Router) { }
 
   signup(fullName: string, idNumber: string, accountNumber: string, password: string) {
-    this.http.post(`${this.mainRoute}register`, {
-      fullName: fullName,
-      idNumber: idNumber,
-      accountNumber: accountNumber,
-      password: password
-    }).subscribe(response => {
-      console.log(`this is the response: ${JSON.stringify(response)}`);
-      this.router.navigate(['/login'])
-    });
+    const credentials = { fullName, idNumber, accountNumber, password };
+    this.http.post(`${this.mainRoute}register`, credentials)
+      .subscribe(response => {
+        console.log(`Response: ${JSON.stringify(response)}`);
+        this.router.navigate(['/login']);
+      });
   }
 
   login(fullName: string, accountNumber: string, password: string) {
-    this.http.post<{ token: string, userId: string, role: string}>(`${this.mainRoute}login`, {
-      username: fullName,
-      accountNumber: accountNumber,
-      password: password
-    }).subscribe(response => {
-      console.log(`this is the response: ${JSON.stringify(response)}`);
-      this.token = response.token;
-      this.userId = response.userId; 
-      this.role = response.role;
-      this.loggedIn.next(true);
-
-      localStorage.setItem('token', this.token);
-      localStorage.setItem('userId', this.userId);
-      localStorage.setItem('role', this.role);
-      this.router.navigate(['/']);
-    });
+    const credentials = { username: fullName, accountNumber, password };
+    this.authenticateUser('login', credentials);
   }
 
   employeeLogin(email: string, password: string) {
-    console.log(`Email: ${email}\npassword: ${password}`)
-    this.http.post<{ token: string, userId: string, role: string}>(`${this.mainRoute}employee-login`, {
-      email: email,
-      password: password
-    }).subscribe(response => {
-      console.log(`this is the response: ${JSON.stringify(response)}`);
-      this.token = response.token;
-      this.userId = response.userId; 
-      this.role = response.role;
-      this.loggedIn.next(true);
-
-      localStorage.setItem('token', this.token);
-      localStorage.setItem('userId', this.userId);
-      localStorage.setItem('role', this.role);
-      this.router.navigate(['/']);
-    });
+    const credentials = { email, password };
+    this.authenticateUser('employee-login', credentials);
   }
 
-  getToken() {
-    return this.token || localStorage.getItem('token');
-  }
-  
-  // Get userId from localStorage if present
-  getUserId() {
-    return this.userId || localStorage.getItem('userId');
+  getToken(): string | null {
+    return this.token || this.getLocalStorage('token');
   }
 
-  // Get userId from localStorage if present
-  getRole() {
-    return this.userId || localStorage.getItem('role');
+  getUserId(): string | null {
+    return this.userId || this.getLocalStorage('userId');
+  }
+
+  getRole(): string | null {
+    return this.role || this.getLocalStorage('role');
   }
 
   logout(): void {
     this.loggedIn.next(false);
-    this.token = ''; 
-    this.userId = ''; 
-    localStorage.removeItem('token'); // Remove token from localStorage
-    localStorage.removeItem('userId'); // Remove userId from localStorage
-    localStorage.removeItem('role'); // Remove userId from localStorage
+    this.token = '';
+    this.userId = '';
+    this.role = '';
+    this.clearLocalStorage();
     this.router.navigate(['/login']);
   }
 
@@ -96,9 +59,36 @@ export class AuthServiceService {
     return this.loggedIn.asObservable();
   }
 
-  
-
   private hasToken(): boolean {
-    return !!localStorage.getItem('token');
+    return !!this.getLocalStorage('token');
+  }
+
+  private authenticateUser(endpoint: string, credentials: any): void {
+    this.http.post<{ token: string, userId: string, role: string }>(`${this.mainRoute}${endpoint}`, credentials)
+      .subscribe(response => {
+        console.log(`Response: ${JSON.stringify(response)}`);
+        this.token = response.token;
+        this.userId = response.userId;
+        this.role = response.role;
+        this.loggedIn.next(true);
+        this.setLocalStorage('token', this.token);
+        this.setLocalStorage('userId', this.userId);
+        this.setLocalStorage('role', this.role);
+        this.router.navigate(['/']);
+      });
+  }
+
+  private setLocalStorage(key: string, value: string): void {
+    localStorage.setItem(key, value);
+  }
+
+  private getLocalStorage(key: string): string | null {
+    return localStorage.getItem(key);
+  }
+
+  private clearLocalStorage(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
   }
 }
