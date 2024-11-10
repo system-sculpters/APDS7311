@@ -24,6 +24,9 @@ import { MatInputModule } from '@angular/material/input'
 import { MatTableModule, } from '@angular/material/table'
 import { MatSelectModule  } from '@angular/material/select';
 import { HomeComponent } from './home/home.component'
+import { MatMenuModule } from '@angular/material/menu';
+import { EmployeeLoginComponent } from './auth/employee-login/employee-login.component';
+import { TransactionDisplayEmployeeComponent } from './transaction/transaction-display-employee/transaction-display-employee.component';
 
 
 
@@ -37,6 +40,8 @@ import { HomeComponent } from './home/home.component'
     NavbarComponent,
     ErrorComponent,
     HomeComponent,
+    EmployeeLoginComponent,
+    TransactionDisplayEmployeeComponent,
     
   ],
   imports: [
@@ -52,7 +57,8 @@ import { HomeComponent } from './home/home.component'
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [
     {

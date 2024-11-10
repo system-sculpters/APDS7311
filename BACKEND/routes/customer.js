@@ -5,9 +5,9 @@
 
 const router = require('express').Router()
 const { authMiddleware } = require('../middleware/authMiddleware')
-const { getAllPayments, createTransaction } = require('../controller/customerController')
+const { getAllUserPayments, createTransaction } = require('../controller/customerController')
 
-router.get('/:id', authMiddleware, getAllPayments)
+router.get('/:id', authMiddleware, getAllUserPayments)
 
 router.post('/:id', authMiddleware, createTransaction)
 

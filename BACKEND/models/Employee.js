@@ -6,15 +6,16 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    employeeId: {
+    email: {
         type: String,
         required: true,
-        unique: true
-    },
-    username: {
-        type: String,
-        required: true,
-        unique: true
+        unique: true,
+        validate: {
+            validator: function(v) {
+                return /^\S+@\S+\.\S+$/.test(v);  // Simple email regex
+            },
+            message: props => `${props.value} is not a valid email!`
+        }
     },
     password: {
         type: String,
@@ -22,6 +23,7 @@ const employeeSchema = new mongoose.Schema({
     },
     role: {
         type: String,
+        enum: ['employee', 'user'],  // Restrict to specific roles
         default: 'employee'
     },
     createdAt: {

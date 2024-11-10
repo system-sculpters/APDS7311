@@ -1,6 +1,6 @@
 const Transaction = require('../models/Transaction')
 
-const getAllPayments = async (req, res) =>{
+const getAllUserPayments = async (req, res) =>{
     // This method was adapted from dev
     // https://dev.to/omacys/building-a-basic-crud-api-with-nodejs-mongodb-and-expressjs-a-beginners-tutorial-1mmh#:~:text=In%20this%20tutorial,%20we%20will%20be%20building%20a%20basic%20CRUD
     // Shamsuddeen Omacy
@@ -9,7 +9,9 @@ const getAllPayments = async (req, res) =>{
     try {
         const {id} = req.params
 
-        const payment = await Transaction.find({ 'userId': id });
+        const payment = await Transaction.find({ 'userId': id })
+        .populate('userId', 'fullName idNumber');
+        
         console.log(payment)
         res.status(200).json({
             message: "user transactions retrieved",
@@ -78,4 +80,6 @@ const validateCode = (provider, code) => {
     return null; // If valid or provider is unknown
 }
 
-module.exports = { getAllPayments, createTransaction }
+
+
+module.exports = { getAllUserPayments, createTransaction }

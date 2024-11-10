@@ -9,6 +9,8 @@ import { AuthServiceService } from '../auth/auth-service.service';
 export class NavbarComponent {
   isLoggedIn: boolean = false;
   isLoggedOut: boolean = true;
+  isUser: boolean = false;
+  isEmployee: boolean = true;
 
   constructor(private authService: AuthServiceService) {}
 
@@ -17,6 +19,16 @@ export class NavbarComponent {
       this.isLoggedIn = status;
       this.isLoggedOut = !status;
     });
+
+    const role = this.authService.getRole()
+
+    if(role && role == 'employee'){
+      this.isEmployee = true
+      this.isUser = false
+    } else {
+      this.isEmployee = false
+      this.isUser = true
+    }
   }
 
   onLogout(): void {

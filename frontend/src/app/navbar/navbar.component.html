@@ -5,16 +5,26 @@
     
 
     <ng-container *ngIf="isLoggedIn; else loggedOut">
-        <a mat-button routerLink="/add">Add</a>
+        <ng-container *ngIf="isEmployee; else isUser">
+            <a mat-button routerLink="/transactions">List</a>
+        </ng-container>
+        <ng-template #isUser>
+            <a mat-button routerLink="/add">Add</a>
       
-        <a mat-button routerLink="/list">List</a>
+            <a mat-button routerLink="/list">List</a>
 
+        </ng-template>
+        
         
         <a (click)="onLogout()">Logout</a>
     </ng-container>
         
     <ng-template #loggedOut>
-        <a mat-button routerLink="/login">Login</a>
+        <button mat-button [matMenuTriggerFor]="loginMenu">Login</button>
+        <mat-menu #loginMenu="matMenu">
+            <button mat-menu-item [routerLink]="'/login'">User Login</button>
+            <button mat-menu-item [routerLink]="'/employee-login'">Employee Login</button>
+        </mat-menu>
         <a mat-raised-button color="accent" routerLink="/signup">Signup</a>
     </ng-template>
 </mat-toolbar>

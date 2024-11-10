@@ -1,0 +1,48 @@
+<div class="container"> 
+    <div class="inner-container">
+        <div class="title">
+            <h3>Login</h3>
+        </div>
+
+        <form (submit)="onlogin(loginForm)" #loginForm="ngForm">
+            <!-- Email Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" 
+                    ngModel name="enteredEmail"
+                    placeholder="Email"
+                    required
+                    #enteredEmail="ngModel"
+                    matInput>
+            </mat-form-field>
+            <div class="err" *ngIf="enteredEmail.invalid && (enteredEmail.dirty || enteredEmail.touched)">
+                <span *ngIf="enteredEmail.errors?.['required']">Email is required.</span>
+                <span *ngIf="enteredEmail.errors?.['email']">Enter a valid email address.</span>
+            </div>
+
+            <!-- Password Field -->
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" 
+                    ngModel name="enteredPassword"
+                    placeholder="Password"
+                    required
+                    minlength="8"
+                    maxlength="15"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,15}$" 
+                    #enteredPassword="ngModel"
+                    matInput>
+            </mat-form-field>
+            <div class="err" *ngIf="enteredPassword.invalid && (enteredPassword.dirty || enteredPassword.touched)">
+                <span *ngIf="enteredPassword.errors?.['required']">Password is required.</span>
+                <span *ngIf="enteredPassword.errors?.['minlength']">Password must be at least 8 characters long.</span>
+                <span *ngIf="enteredPassword.errors?.['maxlength']">Password cannot exceed 15 characters.</span>
+                <span *ngIf="enteredPassword.errors?.['pattern']">
+                    Password must include letters and numbers, and can contain special characters.
+                </span>
+            </div>
+
+            <button type="submit" color="primary" mat-raised-button>Login</button>
+        </form>
+    </div>
+</div>

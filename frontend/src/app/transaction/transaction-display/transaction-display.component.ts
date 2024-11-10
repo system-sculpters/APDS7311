@@ -2,16 +2,23 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TransactionServiceService } from '../transaction-service.service';
 import { Subscription } from 'rxjs';
 import { AuthServiceService } from '../../auth/auth-service.service'; // Import your auth service
+import { Router } from '@angular/router';
 
 
 interface Transaction {
   _id: string;
-  userId: string, 
+  userId: User, 
   amount: number, 
   currency: string, 
   provider: string, 
   code: string,
   status: string
+}
+
+interface User {
+  _id: string;
+  fullName: string;
+  idNumber: string;
 }
 
 @Component({
@@ -28,7 +35,7 @@ export class TransactionDisplayComponent implements OnInit, OnDestroy{
   private transactionsubscription!: Subscription;
 
   constructor(public transactionservice: TransactionServiceService,
-    private authService: AuthServiceService ) {}
+    private authService: AuthServiceService, private router: Router ) {}
 
   ngOnInit(): void {
     const userId = this.authService.getUserId(); // Retrieve the userId from AuthService
@@ -43,6 +50,7 @@ export class TransactionDisplayComponent implements OnInit, OnDestroy{
       });
     } else {
       console.error('UserId is not available');
+      this.router.navigate(['/login']);
     }
   }
 

@@ -8,6 +8,16 @@ content-type: application/json
     "password": "@Userh123"
 } 
 
+###
+POST https://localhost:5000/api/auth/employee-register HTTP/1.1
+content-type: application/json
+
+{
+    "fullName": "employee",
+    "email": "employee@gmail.com",
+    "password": "@Employee123"
+} 
+
 
 ###
 POST https://localhost:5000/api/auth/login HTTP/1.1

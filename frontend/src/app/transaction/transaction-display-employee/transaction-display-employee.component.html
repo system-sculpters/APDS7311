@@ -1,0 +1,54 @@
+<div class="title">
+    <h3>Transactions</h3>
+</div>
+<div class="table-container">
+    <mat-table [dataSource]="transactions" class="mat-elevation-z8 small-table" >
+    
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef> amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+        </ng-container>
+         
+        <ng-container matColumnDef="currency">
+          <mat-header-cell *matHeaderCellDef> currency </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.currency}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="user">
+          <mat-header-cell *matHeaderCellDef> user </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.user}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="provider">
+            <mat-header-cell *matHeaderCellDef> provider </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.provider}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="code">
+            <mat-header-cell *matHeaderCellDef> code </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="reciever">
+            <mat-header-cell *matHeaderCellDef> reciever </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.reciever}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="verify">
+            <mat-header-cell *matHeaderCellDef> Verify </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-button color="primary" (click)="verifyTransaction(element)">Verify</button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>   
+</div>

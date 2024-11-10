@@ -43,6 +43,16 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
+const verifyEmployee = (req, res, next) => {
+    // Ensure the user is authenticated using the verifyToken middleware
+    if (req.user.role !== 'employee') {
+        return res.status(403).json({ error: 'Access denied: User is not an employee' });
+    }
 
-module.exports = { authMiddleware }
+    // Proceed to the next middleware or route handler
+    next();
+};
+
+
+module.exports = { authMiddleware, verifyEmployee }
 

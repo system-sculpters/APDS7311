@@ -5,11 +5,15 @@
 
 const router = require('express').Router()
 const { bruteForce } = require('../middleware/bruteForceProtectionMiddleware')
-const { loginAttemptLogger } = require('../middleware/loginAttemptMiddleware')
-const { register, login } = require('../controller/authController')
+const { loginAttemptLogger, employeeLoginAttemptLogger } = require('../middleware/loginAttemptMiddleware')
+const { register, registerEmployee, login, employeeLogin } = require('../controller/authController')
 
 router.post('/register', register)
 
+router.post('/employee-register', registerEmployee)
+
 router.post('/login', bruteForce.prevent, loginAttemptLogger, login)
+
+router.post('/employee-login', bruteForce.prevent, employeeLoginAttemptLogger, employeeLogin)
 
 module.exports = router 

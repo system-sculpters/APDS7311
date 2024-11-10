@@ -6,6 +6,7 @@ const app = express()
 const dotenv = require('dotenv').config()
 const cors = require('cors')
 const { connectDB } = require('./db/conn')
+
 const authRoute = require('./routes/auth');
 const customerRoute = require('./routes/customer');
 const transactionRoute = require('./routes/transaction'); 
@@ -21,20 +22,19 @@ connectDB()
 // Nilesh Raut
 // https://dev.to/speaklouder
 const corsOptions = {
-    origin: `https://localhost:${ORIGIN_PORT}`,  // Allow requests from Angular app
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these methods
-    allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],  // Allow these headers
-    credentials: true,  // Allow credentials (cookies, etc.)
-    optionsSuccessStatus: 204  // Use 204 status for successful preflight response
-  };
+  origin: `https://localhost:${ORIGIN_PORT}`,  // Allow requests from Angular app
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],  // Allow these headers
+  credentials: true,  // Allow credentials (cookies, etc.)
+  optionsSuccessStatus: 204  // Use 204 status for successful preflight response
+};
 
-  
 app.use(cors(corsOptions))
 
 app.use(express.json()); 
 
 app.use(`${urlprefix}/employees`,employeeRoute)
-app.use(`${urlprefix}/transactions`,transactionRoute);  
+app.use(`${urlprefix}/transaction`,transactionRoute);  
 app.use(`${urlprefix}/auth`, authRoute);
 app.use(`${urlprefix}/payment`, customerRoute);
 
