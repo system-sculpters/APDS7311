@@ -47,6 +47,14 @@ This shows the status of the APDS7311 main branch with a "Passed" quality gate. 
 
 
 
+![unverified](https://github.com/user-attachments/assets/137dbd40-e6bc-47a5-9ee8-2b61c20e3a8f)
+This shows the status of a transaction which was performed by the User. It displays the status as 'pending' as it has not yet been verified by the employee. 
+
+![Screenshot 2024-11-11 000101](https://github.com/user-attachments/assets/0386eefb-73d1-4ba7-bab6-0ea3c0c45ff3)
+This displays how the employee will verify a transaction which is made by a user within the payment portal. 
+
+![verified](https://github.com/user-attachments/assets/0cd2aa48-2eaa-43ea-98c2-5d7899a604ed)
+This shows the status of the transaction in monogdb, it was verified by the employee thus changing the status from 'pending' to a 'verified' transaction. 
 
 
 
